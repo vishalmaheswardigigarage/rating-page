@@ -188,15 +188,10 @@
       <span class="star" data-value="5">&#9733;</span>
     </div>
 
-    <!-- ✅ Updated FormSubmit Form with Name -->
+    <!-- ✅ Updated FormSubmit Form -->
     <form id="feedbackForm" style="display: none;" action="https://formsubmit.co/shekharpareek30@gmail.com" method="POST">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="rating" id="formRating" />
-
-      <label>
-        Your Name:
-        <input type="text" name="name" id="formName" required>
-      </label>
 
       <label>
         Your Mobile Number:
@@ -230,7 +225,7 @@
     });
   </script>
 
-  <!-- Stars & Form Script -->
+  <!-- Form/Stars Script -->
   <script>
     const stars = document.querySelectorAll('.star');
     const ratingContainer = document.querySelector('.rating-container');
@@ -238,7 +233,6 @@
     const feedbackForm = document.getElementById('feedbackForm');
     const formRating = document.getElementById('formRating');
     const formMessage = document.getElementById('formMessage');
-    const formName = document.getElementById('formName');
     const toast = document.getElementById('toast');
     let selectedRating = 0;
 
@@ -267,15 +261,7 @@
     });
 
     feedbackForm.addEventListener('submit', function () {
-      const name = formName.value.trim();
-      if (name) {
-        toast.textContent = `Thank you ${name} for your valuable feedback!`;
-      } else {
-        toast.textContent = `Thank you for your valuable feedback!`;
-      }
-
       showToast();
-
       setTimeout(() => {
         window.location.reload();
       }, 3000);
@@ -301,7 +287,6 @@
       feedbackForm.style.display = 'none';
       formMessage.value = '';
       formRating.value = '';
-      formName.value = '';
     }
 
     function selectStars(rating) {
