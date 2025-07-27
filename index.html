@@ -193,6 +193,11 @@
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="rating" id="formRating" />
 
+      
+      <label>
+        Your Name:
+        <input type="text" name="name" id="formName" placeholder="Your Name" required />
+      </label>
       <label>
         Your Mobile Number:
         <input type="tel" name="mobile" pattern="[0-9]{10}" maxlength="10" required>
@@ -261,10 +266,18 @@
     });
 
     feedbackForm.addEventListener('submit', function () {
+  const name = document.getElementById("formName").value;
+
+  // Set custom message with name
+  toast.innerText = `Thank you ${name} for your valuable feedback!`;
+
+  // Show the toast after updating message
   showToast();
+
+  // Reload the page after 5 seconds
   setTimeout(() => {
     window.location.reload();
-  }, 5000); // Show toast for 5 seconds before reload
+  }, 10000);
 });
 
 
